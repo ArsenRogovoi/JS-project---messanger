@@ -8,6 +8,7 @@ const initialData = () => {
             mail: "camilla@mail.com",
             chats: [],
             photo: "https://randomuser.me/api/portraits/women/2.jpg",
+            contacts: [],
         },
         {
             userName: "Anika Sharpe",
@@ -16,6 +17,7 @@ const initialData = () => {
             mail: "anika@mail.com",
             chats: [],
             photo: "https://randomuser.me/api/portraits/women/3.jpg",
+            contacts: [],
         },
         {
             userName: "Jaron Edwards",
@@ -24,6 +26,7 @@ const initialData = () => {
             mail: "jaron@mail.com",
             chats: [],
             photo: "https://randomuser.me/api/portraits/men/0.jpg",
+            contacts: [],
         },
         {
             userName: "Loida Marley",
@@ -32,6 +35,7 @@ const initialData = () => {
             mail: "loida@mail.com",
             chats: [],
             photo: "https://randomuser.me/api/portraits/women/4.jpg",
+            contacts: [],
         },
         {
             userName: "Vega Bell",
@@ -40,6 +44,7 @@ const initialData = () => {
             mail: "vega@mail.com",
             chats: [],
             photo: "https://randomuser.me/api/portraits/women/5.jpg",
+            contacts: [],
         },
         {
             userName: "Alexia Hoxha",
@@ -48,6 +53,7 @@ const initialData = () => {
             mail: "alexia@mail.com",
             chats: [],
             photo: "https://randomuser.me/api/portraits/women/9.jpg",
+            contacts: [],
         },
         {
             userName: "Ray Pickle",
@@ -56,6 +62,7 @@ const initialData = () => {
             mail: "ray@mail.com",
             chats: [],
             photo: "https://randomuser.me/api/portraits/men/3.jpg",
+            contacts: [],
         },
         {
             userName: "Jackie Yates",
@@ -64,6 +71,7 @@ const initialData = () => {
             mail: "jackie@mail.com",
             chats: [],
             photo: "https://randomuser.me/api/portraits/men/4.jpg",
+            contacts: [],
         },
         {
             userName: "Wilbur Weekes",
@@ -72,6 +80,7 @@ const initialData = () => {
             mail: "wilbur@mail.com",
             chats: [],
             photo: "https://randomuser.me/api/portraits/men/7.jpg",
+            contacts: [],
         },
         {
             userName: "Andy Banister",
@@ -80,6 +89,7 @@ const initialData = () => {
             mail: "andy@mail.com",
             chats: [],
             photo: "https://randomuser.me/api/portraits/men/8.jpg",
+            contacts: [],
         },
         {
             userName: "Mark Coleman",
@@ -88,6 +98,7 @@ const initialData = () => {
             mail: "mark@mail.com",
             chats: [],
             photo: "https://randomuser.me/api/portraits/men/9.jpg",
+            contacts: [],
         },
         {
             userName: "Linda Harry",
@@ -96,6 +107,7 @@ const initialData = () => {
             mail: "linda@mail.com",
             chats: [],
             photo: "https://randomuser.me/api/portraits/women/10.jpg",
+            contacts: [],
         },
         {
             userName: "Willie Stringer",
@@ -104,6 +116,7 @@ const initialData = () => {
             mail: "willie@mail.com",
             chats: [],
             photo: "https://randomuser.me/api/portraits/men/10.jpg",
+            contacts: [],
         },
     ];
     const initialUsers = [];

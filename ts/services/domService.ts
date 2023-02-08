@@ -85,3 +85,27 @@ export const CHAT_PAGE_BTN_TO_SEND_MSG = document.querySelector(
   "#btn-to-send-msg"
 ) as HTMLElement;
 //#endregion
+
+//#region user profile page elements
+export const USER_PROFILE_PAGE = document.querySelector(
+  "#user-profile-page"
+) as HTMLElement;
+export const USER_PROFILE_PAGE_BACK_ARROW = document.querySelector(
+  "#user-profile-page-back-arrow"
+) as HTMLElement;
+export const USER_PROFILE_PAGE_PHOTO = document.querySelector(
+  "#user-profile-page-photo"
+) as HTMLElement;
+export const USER_PROFILE_PAGE_NAME = document.querySelector(
+  "#user-profile-page-name"
+) as HTMLElement;
+export const USER_PROFILE_PAGE_LOGIN = document.querySelector(
+  "#user-profile-page-login"
+) as HTMLElement;
+export const USER_PROFILE_PAGE_MAIL = document.querySelector(
+  "#user-profile-page-mail"
+) as HTMLElement;
+export const USER_PROFILE_PAGE_ID = document.querySelector(
+  "#user-profile-page-id"
+) as HTMLElement;
+//#endregion

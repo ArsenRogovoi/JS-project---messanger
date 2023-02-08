@@ -8,10 +8,10 @@
   cursor: pointer;
 }
 
-/* .message {
-    min-width: 25%;
-    max-width: 75%;
-  } */
+.mw-150px {
+  min-width: 150px !important;
+}
+
 @media only screen and (min-width: 768px) {
   #chat-page-img-interlocutor {
     width: 50% !important;

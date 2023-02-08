@@ -214,5 +214,55 @@
         </div>
       </div>
     </div>
+
+    <!-- user profile page -->
+    <div class="container p-0 d-none" id="user-profile-page">
+      <div class="row m-0 p-0">
+        <!-- back arrow -->
+        <div class="col-2 m-0 p-0">
+          <div
+            class="d-flex justify-content-center align-content-center border border-2 border-light rounded-2 m-2"
+            id="user-profile-page-back-arrow"
+          >
+            <i class="bi bi-arrow-left" style="font-size: 2rem"></i>
+          </div>
+        </div>
+        <hr class="mt-1" />
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-3 mw-150px">
+          <img
+            src="https://randomuser.me/api/portraits/lego/5.jpg"
+            alt="user-photo"
+            class="rounded-circle w-100"
+            id="user-profile-page-photo"
+          />
+        </div>
+      </div>
+      <div class="row my-3">
+        <div class="col text-center">
+          <ul class="list-group">
+            <li class="list-group-item bg-secondary text-light">
+              Name: <span id="user-profile-page-name">userName</span>
+            </li>
+            <li class="list-group-item bg-secondary text-light">
+              Login: <span id="user-profile-page-login">login</span>
+            </li>
+            <li class="list-group-item bg-secondary text-light">
+              Mail: <span id="user-profile-page-mail">mail</span>
+            </li>
+            <li class="list-group-item bg-secondary text-light">
+              Accaunt ID: <span id="user-profile-page-id">id</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-6 d-flex justify-content-evenly">
+          <input type="button" value="Edit profile" class="btn btn-primary" />
+          <input type="button" value="Delete profile" class="btn btn-danger" />
+        </div>
+      </div>
+    </div>
   </body>
 </html>

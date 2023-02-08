@@ -29,7 +29,6 @@ export const checkLogin = () => {
       data.CURRENT_USER.user = users.find(
         (user) => user.login === LOGIN_INPUT.value
       );
-      data.CURRENT_USER.state = "user page";
       startUserPage();
       LOGIN_INPUT.value = "";
       PASSWORD_INPUT.value = "";

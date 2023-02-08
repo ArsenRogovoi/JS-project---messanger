@@ -7,8 +7,9 @@ class User {
     mail;
     chats;
     photo;
+    contacts;
     constructor(user, userArr = [], userId = generateId(userArr)) {
-        const { userName, login, password, mail, chats, photo } = user;
+        const { userName, login, password, mail, chats, photo, contacts } = user;
         this.userName = userName;
         this.login = login;
         this.password = password;
@@ -16,6 +17,7 @@ class User {
         this.chats = chats;
         this.photo = photo;
         this.id = userId;
+        this.contacts = contacts;
     }
 }
 export default User;

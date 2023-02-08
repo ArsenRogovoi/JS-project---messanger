@@ -1,13 +1,5 @@
+import { user } from "../types";
 import { generateId } from "../utils/algoMethods.js";
-
-interface user {
-  userName: string;
-  login: string;
-  password: string;
-  mail: string;
-  chats: number[];
-  photo: string;
-}
 
 class User {
   id;
@@ -17,9 +9,10 @@ class User {
   mail;
   chats;
   photo;
+  contacts;
 
   constructor(user: user, userArr: User[] = [], userId = generateId(userArr)) {
-    const { userName, login, password, mail, chats, photo } = user;
+    const { userName, login, password, mail, chats, photo, contacts } = user;
     this.userName = userName;
     this.login = login;
     this.password = password;
@@ -27,6 +20,7 @@ class User {
     this.chats = chats;
     this.photo = photo;
     this.id = userId;
+    this.contacts = contacts;
   }
 }
 

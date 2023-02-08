@@ -1,10 +1,6 @@
+import { chat } from "../types";
 import { generateId } from "../utils/algoMethods.js";
 import Message from "./messageModel.js";
-
-interface chat {
-  participants: number[];
-  messages: Message[];
-}
 
 class Chat {
   id: number;

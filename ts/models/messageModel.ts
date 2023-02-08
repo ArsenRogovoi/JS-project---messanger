@@ -1,10 +1,5 @@
+import { msg } from "../types";
 import { generateId } from "../utils/algoMethods.js";
-
-interface msg {
-  content: string;
-  from: number;
-  to: number;
-}
 
 class Message {
   id;
