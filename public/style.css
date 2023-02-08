@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+/* .message {
+    min-width: 25%;
+    max-width: 75%;
+  } */
+@media only screen and (min-width: 768px) {
+  #chat-page-img-interlocutor {
+    width: 50% !important;
+  }
+  #btn-to-send-msg {
+    width: 61.6px !important;
+  }
+  .w-75 {
+    width: 50% !important;
+  }
+}
