@@ -34,3 +34,5 @@ export const USER_PROFILE_PAGE_NAME = document.querySelector("#user-profile-page
 export const USER_PROFILE_PAGE_LOGIN = document.querySelector("#user-profile-page-login");
 export const USER_PROFILE_PAGE_MAIL = document.querySelector("#user-profile-page-mail");
 export const USER_PROFILE_PAGE_ID = document.querySelector("#user-profile-page-id");
+export const USER_PROFILE_EDIT_BTN = document.querySelector("#edit-profile-btn");
+export const USER_PROFILE_DELETE_BTN = document.querySelector("#delete-profile-btn");

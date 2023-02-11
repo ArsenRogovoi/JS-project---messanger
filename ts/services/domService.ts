@@ -108,4 +108,10 @@ export const USER_PROFILE_PAGE_MAIL = document.querySelector(
 export const USER_PROFILE_PAGE_ID = document.querySelector(
   "#user-profile-page-id"
 ) as HTMLElement;
+export const USER_PROFILE_EDIT_BTN = document.querySelector(
+  "#edit-profile-btn"
+) as HTMLInputElement;
+export const USER_PROFILE_DELETE_BTN = document.querySelector(
+  "#delete-profile-btn"
+) as HTMLInputElement;
 //#endregion

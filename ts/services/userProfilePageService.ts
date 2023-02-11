@@ -1,6 +1,9 @@
+import { logOut } from "../app.js";
 import PAGES from "../models/pageModel.js";
+import User from "../models/userModel.js";
 import { onChangePage } from "../routes/router.js";
 import {
+  USER_PROFILE_DELETE_BTN,
   USER_PROFILE_PAGE_BACK_ARROW,
   USER_PROFILE_PAGE_ID,
   USER_PROFILE_PAGE_LOGIN,
@@ -20,4 +23,26 @@ export const startUserProfilePage = () => {
   USER_PROFILE_PAGE_LOGIN.innerText = `${currentUser?.login}`;
   USER_PROFILE_PAGE_MAIL.innerText = `${currentUser?.mail}`;
   USER_PROFILE_PAGE_ID.innerText = `${currentUser?.id}`;
+
+  USER_PROFILE_DELETE_BTN.removeEventListener("click", () => {
+    deleteProfile(data.CURRENT_USER.user);
+  });
+  USER_PROFILE_DELETE_BTN.addEventListener("click", () => {
+    deleteProfile(data.CURRENT_USER.user);
+  });
+};
+
+export const deleteProfile = (user: User | undefined) => {
+  if (typeof user === "undefined")
+    throw Error('variable "user" in deleteProfile function is undefined');
+  const usersJSON = localStorage.getItem("users");
+  const users: User[] =
+    typeof usersJSON === "string" ? JSON.parse(usersJSON) : undefined;
+  users.forEach((u, ind) => {
+    if (u.id === user.id) {
+      users.splice(ind, 1);
+    }
+  });
+  logOut();
+  localStorage.setItem("users", JSON.stringify(users));
 };

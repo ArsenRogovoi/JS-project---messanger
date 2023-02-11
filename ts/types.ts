@@ -20,3 +20,15 @@ export interface msg {
   from: number;
   to: number;
 }
+
+export interface field {
+  fieldHTMLElem: HTMLInputElement;
+  errorSpan: HTMLSpanElement;
+  validation: {
+    minSymbols: number | undefined;
+    maxSymbols: number | undefined;
+    minNum: number | undefined;
+    maxNum: number | undefined;
+    regEx: RegExp | undefined;
+  };
+}
