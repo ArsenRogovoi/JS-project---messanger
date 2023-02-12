@@ -2,7 +2,8 @@ import initialData from "./initialData/initialData.js";
 import PAGES from "./models/pageModel.js";
 import { onChangePage } from "./routes/router.js";
 import { sendMsg, typingMsg } from "./services/chatPage.js";
-import { CHAT_PAGE_BTN_TO_SEND_MSG, CHAT_PAGE_INPUT_MSG, NAV_PAGE_LOGOUT_LINK, } from "./services/domService.js";
+import { CHAT_PAGE_BTN_TO_SEND_MSG, CHAT_PAGE_INPUT_MSG, NAV_PAGE_LOGOUT_LINK, SIGNUP_BTN_LINK, } from "./services/domService.js";
+import { startSignupPage } from "./services/signupService.js";
 import startingApp from "./services/startingApp.js";
 startingApp();
 initialData();
@@ -26,3 +27,4 @@ export const logOut = () => {
     data.CURRENT_USER.state = "login page";
     data.CURRENT_USER.datesOfLastMessages = [];
 };
+SIGNUP_BTN_LINK.addEventListener("click", startSignupPage);

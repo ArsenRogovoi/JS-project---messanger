@@ -274,5 +274,63 @@
         </div>
       </div>
     </div>
+
+    <!-- sign up page -->
+    <div class="container-fluid d-none" id="signup-page">
+      <h1 class="display-3 text-center my-5">Signing up</h1>
+      <form class="col-10 col-sm-6 col-md-6 col-lg-3 m-auto">
+        <div class="mb-3">
+          <label for="userName" class="form-label">Name</label>
+          <input class="form-control" name="name" id="signup-form-name" />
+          <span id="signup-form-name-error-span"></span>
+        </div>
+        <div class="mb-3">
+          <label for="login" class="form-label">Login</label>
+          <input
+            type="text"
+            class="form-control"
+            name="login"
+            id="signup-form-login"
+          />
+          <span id="signup-form-login-error-span"></span>
+        </div>
+        <div class="mb-3">
+          <label for="mail" class="form-label">Mail</label>
+          <input
+            type="email"
+            class="form-control"
+            name="mail"
+            id="signup-form-mail"
+          />
+          <span id="signup-form-mail-error-span"></span>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            id="signup-form-password"
+          />
+          <span id="signup-form-password-error-span"></span>
+        </div>
+
+        <div class="row d-flex justify-content-around mb-3">
+          <input
+            class="btn btn-primary col-4"
+            id="signup-form-submit-btn"
+            value="Sign up"
+            type="button"
+          />
+          <input
+            class="btn btn-outline-warning col-7"
+            id="signup-form-cancel-btn"
+            value="Cancel"
+            type="button"
+          />
+          <span id="signup-form-name-error-span"></span>
+        </div>
+      </form>
+    </div>
   </body>
 </html>

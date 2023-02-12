@@ -30,5 +30,6 @@ export interface field {
     minNum: number | undefined;
     maxNum: number | undefined;
     regEx: RegExp | undefined;
+    isAlreadyExists: "login" | "mail" | undefined;
   };
 }

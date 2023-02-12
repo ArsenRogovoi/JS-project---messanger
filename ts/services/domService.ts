@@ -115,3 +115,39 @@ export const USER_PROFILE_DELETE_BTN = document.querySelector(
   "#delete-profile-btn"
 ) as HTMLInputElement;
 //#endregion
+
+//#region sign up page
+export const SIGNUP_PAGE = document.querySelector(
+  "#signup-page"
+) as HTMLElement;
+export const SIGNUP_FORM_NAME = document.querySelector(
+  "#signup-form-name"
+) as HTMLInputElement;
+export const SIGNUP_FORM_LOGIN = document.querySelector(
+  "#signup-form-login"
+) as HTMLInputElement;
+export const SIGNUP_FORM_MAIL = document.querySelector(
+  "#signup-form-mail"
+) as HTMLInputElement;
+export const SIGNUP_FORM_PASSWORD = document.querySelector(
+  "#signup-form-password"
+) as HTMLInputElement;
+export const SIGNUP_FORM_SUBMIT_BTN = document.querySelector(
+  "#signup-form-submit-btn"
+) as HTMLInputElement;
+export const SIGNUP_FORM_CANCEL_BTN = document.querySelector(
+  "#signup-form-cancel-btn"
+) as HTMLInputElement;
+export const SIGNUP_NAME_ERROR_SPAN = document.querySelector(
+  "#signup-form-name-error-span"
+) as HTMLSpanElement;
+export const SIGNUP_LOGIN_ERROR_SPAN = document.querySelector(
+  "#signup-form-login-error-span"
+) as HTMLSpanElement;
+export const SIGNUP_MAIL_ERROR_SPAN = document.querySelector(
+  "#signup-form-mail-error-span"
+) as HTMLSpanElement;
+export const SIGNUP_PASSWORD_ERROR_SPAN = document.querySelector(
+  "#signup-form-password-error-span"
+) as HTMLSpanElement;
+//#endregion

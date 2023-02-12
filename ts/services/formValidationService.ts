@@ -1,21 +1,40 @@
+import User from "../models/userModel.js";
 import { field } from "../types";
 
-export const validateForm = (
-  schema: string[],
-  fields: field[],
-  submitBtn: HTMLInputElement | HTMLButtonElement,
-  cancelBtn: HTMLInputElement | HTMLButtonElement
-) => {
+export const validateForm = (schema: string[], fields: field[]) => {
   fields.forEach((field) => {
-    validateField(field);
+    field.errorSpan.innerHTML = "";
+    let indexToRemove: number | undefined = undefined;
+    schema.forEach((item, ind) => {
+      if (item === field.fieldHTMLElem.name) {
+        if (validateField(field)) {
+          indexToRemove = ind;
+        }
+      }
+    });
+    if (indexToRemove) schema.splice(indexToRemove, 1);
   });
+
+  if (!schema.length) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
-const validateField = (field: field) => {
+export const validateField = (field: field) => {
+  field.errorSpan.innerHTML = "";
   const {
     fieldHTMLElem,
     errorSpan,
-    validation: { minSymbols, maxSymbols, minNum, maxNum, regEx },
+    validation: {
+      minSymbols,
+      maxSymbols,
+      minNum,
+      maxNum,
+      regEx,
+      isAlreadyExists,
+    },
   } = field;
   let isValid = true;
 
@@ -40,13 +59,6 @@ const validateField = (field: field) => {
     }
   }
 
-  if (minNum) {
-    if (+fieldHTMLElem.value < minNum) {
-      isValid = false;
-      errorSpan.innerHTML = `${errorSpan.innerText}</br> *The number must be more then ${minNum}`;
-    }
-  }
-
   if (maxNum) {
     if (+fieldHTMLElem.value > maxNum) {
       isValid = false;
@@ -61,4 +73,34 @@ const validateField = (field: field) => {
       errorSpan.innerHTML = `${errorSpan.innerText}</br> *The input must match the following regular expression: ${regEx}`;
     }
   }
+
+  if (isAlreadyExists) {
+    const usersJSON = localStorage.getItem("users");
+    const users: User[] | undefined =
+      typeof usersJSON === "string" ? JSON.parse(usersJSON) : undefined;
+    switch (isAlreadyExists) {
+      case "login":
+        users?.forEach((user) => {
+          if (user.login === fieldHTMLElem.value) {
+            isValid = false;
+            errorSpan.innerHTML = `${errorSpan.innerText}</br> *There is account with this login alredy`;
+          }
+        });
+        break;
+
+      case "mail":
+        users?.forEach((user) => {
+          if (user.mail === fieldHTMLElem.value) {
+            isValid = false;
+            errorSpan.innerHTML = `${errorSpan.innerText}</br> *There is account with this mail alredy`;
+          }
+        });
+        break;
+
+      default:
+        break;
+    }
+  }
+
+  return isValid;
 };
