@@ -9,7 +9,7 @@ export const validateForm = (schema, fields) => {
                 }
             }
         });
-        if (indexToRemove)
+        if (typeof indexToRemove === "number")
             schema.splice(indexToRemove, 1);
     });
     if (!schema.length) {

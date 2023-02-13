@@ -3,6 +3,7 @@ import User from "../models/userModel.js";
 import { onChangePage } from "../routes/router.js";
 import { SIGNUP_FORM_CANCEL_BTN, SIGNUP_FORM_LOGIN, SIGNUP_FORM_MAIL, SIGNUP_FORM_NAME, SIGNUP_FORM_PASSWORD, SIGNUP_FORM_SUBMIT_BTN, SIGNUP_LOGIN_ERROR_SPAN, SIGNUP_MAIL_ERROR_SPAN, SIGNUP_NAME_ERROR_SPAN, SIGNUP_PASSWORD_ERROR_SPAN, } from "./domService.js";
 import { validateField, validateForm } from "./formValidationService.js";
+import { startUserPage } from "./userPage.js";
 export const startSignupPage = () => {
     onChangePage(PAGES.SIGNUP_PAGE);
     const schema = ["name", "login", "mail", "password"];
@@ -64,28 +65,40 @@ export const startSignupPage = () => {
             validateField(field);
         });
     });
+    SIGNUP_FORM_SUBMIT_BTN.removeEventListener("click", () => {
+        submitBtnFunc(schema, formFields);
+    });
     SIGNUP_FORM_SUBMIT_BTN.addEventListener("click", () => {
-        if (validateForm(schema, formFields)) {
-            const usersJSON = localStorage.getItem("users");
-            const users = typeof usersJSON === "string" ? JSON.parse(usersJSON) : undefined;
-            const newUser = new User({
-                userName: SIGNUP_FORM_NAME.value,
-                login: SIGNUP_FORM_LOGIN.value,
-                password: SIGNUP_FORM_PASSWORD.value,
-                mail: SIGNUP_FORM_MAIL.value,
-                chats: [],
-                photo: "",
-                contacts: [],
-            }, users);
-            users?.push(newUser);
-            localStorage.setItem("users", JSON.stringify(users));
-        }
+        submitBtnFunc(schema, formFields);
     });
     SIGNUP_FORM_CANCEL_BTN.removeEventListener("click", () => cancelBtnFunc(formFields));
     SIGNUP_FORM_CANCEL_BTN.addEventListener("click", () => cancelBtnFunc(formFields));
 };
 const cancelBtnFunc = (formFields) => {
     onChangePage(PAGES.LOGIN_PAGE);
+    cleanFormFields(formFields);
+};
+const submitBtnFunc = (schema, formFields) => {
+    if (validateForm(schema, formFields)) {
+        const usersJSON = localStorage.getItem("users");
+        const users = typeof usersJSON === "string" ? JSON.parse(usersJSON) : undefined;
+        const newUser = new User({
+            userName: SIGNUP_FORM_NAME.value,
+            login: SIGNUP_FORM_LOGIN.value,
+            password: SIGNUP_FORM_PASSWORD.value,
+            mail: SIGNUP_FORM_MAIL.value,
+            chats: [],
+            photo: "",
+            contacts: [],
+        }, users);
+        users?.push(newUser);
+        localStorage.setItem("users", JSON.stringify(users));
+        cleanFormFields(formFields);
+        data.CURRENT_USER.user = newUser;
+        startUserPage();
+    }
+};
+const cleanFormFields = (formFields) => {
     formFields.forEach((field) => {
         field.fieldHTMLElem.value = "";
         field.errorSpan.innerHTML = "";

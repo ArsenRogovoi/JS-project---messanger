@@ -15,6 +15,7 @@ import {
   SIGNUP_PASSWORD_ERROR_SPAN,
 } from "./domService.js";
 import { validateField, validateForm } from "./formValidationService.js";
+import { startUserPage } from "./userPage.js";
 
 export const startSignupPage = () => {
   onChangePage(PAGES.SIGNUP_PAGE);
@@ -82,26 +83,11 @@ export const startSignupPage = () => {
     });
   });
 
+  SIGNUP_FORM_SUBMIT_BTN.removeEventListener("click", () => {
+    submitBtnFunc(schema, formFields);
+  });
   SIGNUP_FORM_SUBMIT_BTN.addEventListener("click", () => {
-    if (validateForm(schema, formFields)) {
-      const usersJSON = localStorage.getItem("users");
-      const users: User[] | undefined =
-        typeof usersJSON === "string" ? JSON.parse(usersJSON) : undefined;
-      const newUser = new User(
-        {
-          userName: SIGNUP_FORM_NAME.value,
-          login: SIGNUP_FORM_LOGIN.value,
-          password: SIGNUP_FORM_PASSWORD.value,
-          mail: SIGNUP_FORM_MAIL.value,
-          chats: [],
-          photo: "",
-          contacts: [],
-        },
-        users
-      );
-      users?.push(newUser);
-      localStorage.setItem("users", JSON.stringify(users));
-    }
+    submitBtnFunc(schema, formFields);
   });
 
   SIGNUP_FORM_CANCEL_BTN.removeEventListener("click", () =>
@@ -114,6 +100,35 @@ export const startSignupPage = () => {
 
 const cancelBtnFunc = (formFields: field[]) => {
   onChangePage(PAGES.LOGIN_PAGE);
+  cleanFormFields(formFields);
+};
+
+const submitBtnFunc = (schema: string[], formFields: field[]) => {
+  if (validateForm(schema, formFields)) {
+    const usersJSON = localStorage.getItem("users");
+    const users: User[] | undefined =
+      typeof usersJSON === "string" ? JSON.parse(usersJSON) : undefined;
+    const newUser = new User(
+      {
+        userName: SIGNUP_FORM_NAME.value,
+        login: SIGNUP_FORM_LOGIN.value,
+        password: SIGNUP_FORM_PASSWORD.value,
+        mail: SIGNUP_FORM_MAIL.value,
+        chats: [],
+        photo: "",
+        contacts: [],
+      },
+      users
+    );
+    users?.push(newUser);
+    localStorage.setItem("users", JSON.stringify(users));
+    cleanFormFields(formFields);
+    data.CURRENT_USER.user = newUser;
+    startUserPage();
+  }
+};
+
+const cleanFormFields = (formFields: field[]) => {
   formFields.forEach((field) => {
     field.fieldHTMLElem.value = "";
     field.errorSpan.innerHTML = "";
